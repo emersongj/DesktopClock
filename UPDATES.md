@@ -1,5 +1,4 @@
 # DesktopClock
-Clock for Windows Desktop
 
 Version 1.2
 
