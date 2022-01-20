@@ -28,11 +28,13 @@ def time():
 		time_string = strftime('%H%M %S\n%m/%d/%Y')
 		label_time.config(text=time_string)
 		label_time.after(1000, time)
+		label_time.place(x=30, y=15)
 #12-Hour Time
 	if (var1.get() == 1):
 		time_string = strftime('%I:%M:%S %p\n%m/%d/%Y')
 		label_time.config(text=time_string)
 		label_time.after(1000, time)
+		label_time.place(x=10, y=15)
 
 def exit():
 	window.destroy()
