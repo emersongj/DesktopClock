@@ -1,5 +1,13 @@
 # DesktopClock
 
+Menu buttons change color to fit scheme
+
+Added blue and white text menu options
+
+Added "Dark Mode"
+
+Now defaults to 12-hour time and added 12-hour time to Format menu
+___________________________________________________________________________________________________________________________________________________________________________________
 Version 1.2
 
 FIXED
