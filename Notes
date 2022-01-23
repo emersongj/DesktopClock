@@ -1,0 +1,5 @@
+window.attributes('alpha', 0.3)
+  -Makes the window and all the widgets more transparent.
+  -Add an option in the menu to let the user change transparency level
+  
+Combine current menu elements into one group to save space at the top of the window
