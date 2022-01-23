@@ -8,7 +8,6 @@ window.attributes('-topmost', True)
 window.config(bg="black")
 window.overrideredirect(True)
 
-
 w = 280
 h = 120
 
@@ -22,6 +21,15 @@ window.geometry('%dx120+%d+0' % (w, x))
 
 var1 = IntVar()
 
+def open_error_window():
+	error_window = Toplevel(window)
+	error_window.attributes('-topmost', True)
+	error_window.geometry('%dx120+%d+0' % (w, x))
+	error_window.overrideredirect(True)
+	error_window_message = Label(error_window, text="Error: This will make the clock invisible.\n Please select a different color.")
+	error_window_message.place(x=40, y=40)
+	error_window_exit = Button(error_window, text="Ok", bg="gray", command=error_window.destroy)
+	error_window_exit.place(x=240, y=90)
 
 def time():
 #24-Hour Time
@@ -66,18 +74,23 @@ def colorpick_Blue():
 	timeformat.config(fg="Blue")
 	backgroundchange.config(fg="Blue")
 def colorpick_White():
-	label_time.config(fg="White")
-	colorpicker.config(fg="White")
-	timeformat.config(fg="White")
-	backgroundchange.config(fg="White")
+	if label_time.cget("bg") == "White":
+		open_error_window()
+	else:
+		label_time.config(fg="White")
+		colorpicker.config(fg="White")
+		timeformat.config(fg="White")
+		backgroundchange.config(fg="White")
 	
-
 def backgroundchange_White():
-	label_time.config(bg="White")
-	colorpicker.config(bg="White")
-	timeformat.config(bg="White")
-	backgroundchange.config(bg="White")
-	window.config(bg="White")
+	if label_time.cget("fg") == "White":
+		open_error_window()
+	else:
+		label_time.config(bg="White")
+		colorpicker.config(bg="White")
+		timeformat.config(bg="White")
+		backgroundchange.config(bg="White")
+		window.config(bg="White")
 def backgroundchange_Black():
 	label_time.config(bg="Black")
 	colorpicker.config(bg="Black")
@@ -97,8 +110,6 @@ exit_button = Button(window,
 	bg="red",
 	command=exit)
 exit_button.place(x=260,y=1)
-
-
 
 colorpicker = Menubutton(window, text="Scheme", bg="black", fg="red")	
 colorpicker.place(x=1,y=1)	
